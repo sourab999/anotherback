@@ -15,7 +15,10 @@ const app=express()
 
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+origin:["https://668b8fa5b0d229e4463b8e25--aquamarine-wisp-1c569f.netlify.app/","http://localhost:2000/","http://localhost:5173/",]
+
+   } ))
 
 app.get('/',(req,res)=>{
     res.send("home page")
@@ -89,9 +92,8 @@ app.put('/api/tasks/:id',async(req,res)=>{
 })
 
 
+ const PORT=process.env.PORT|| 2000
 
-
-const PORT=2000;
 const startserver =async()=>{
 
     try {
